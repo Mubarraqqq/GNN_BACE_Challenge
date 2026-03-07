@@ -81,7 +81,13 @@ jobs:
           TEST_LABELS_B64: ${{ secrets.TEST_LABELS_B64 }}
         run: |
           echo "Restoring private test labels..."
-          echo "$TEST_LABELS_B64" | base64 -d > data/public/test_labels.csv
+          python3 -c "
+          import base64, os
+          data = os.environ['TEST_LABELS_B64']
+          decoded = base64.b64decode(data.strip())
+          with open('data/public/test_labels.csv', 'wb') as f:
+              f.write(decoded)
+          "
           echo "Test labels restored."
 
       - name: Check Eligibility
