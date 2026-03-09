@@ -105,6 +105,9 @@ Submissions will be ranked by the Macro F1-Score. This metric is essential here 
 
 **Ranking Policy**: We follow Kaggle guidelines—tied scores share the same rank (e.g., if two teams have the top score, both are Rank 1, and the next team is Rank 3).
 
+> [!NOTE]
+> **Baseline Score (0.3908)**: A Macro F1 score of approximately **0.390879** is the result of predicting "0" (inactive) for all molecules in the test set. Due to class imbalance, this is the baseline performance to beat!
+
 ## 📊 Leaderboard 
 
 The leaderboard is automatically updated after each submission is scored. It ranks all submissions by their Macro F1-Score in descending order. 
